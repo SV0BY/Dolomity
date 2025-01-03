@@ -13,6 +13,7 @@ if(isset($_POST['UserName']) && isset($_POST['pass']) && isset($_POST['email']))
   $stmt->bindParam(':email', $_POST['email']);
 
   $stmt -> execute();
+  header("Location: indexVeVnitr.html");
 
   echo "Registrace probehla uspesne";
   $_SESSION["Jmeno"] = $_POST['UserName'];
