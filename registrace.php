@@ -9,9 +9,11 @@ if(isset($_POST['UserName']) && isset($_POST['pass']) && isset($_POST['email']))
     $stmt = $conn->prepare("INSERT INTO uzivatele (username, password, email)
   VALUES (:username, :password, :email)");
   $stmt->bindParam(':username', $_POST['UserName']);
-  $stmt->bindParam(':password', $_POST['pass']);
+  $stmt->bindParam(':password', $heslo);
   $stmt->bindParam(':email', $_POST['email']);
 
+  $heslo = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+  
   $stmt -> execute();
   header("Location: indexVeVnitr.html");
 
