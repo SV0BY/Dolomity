@@ -18,7 +18,17 @@ if(isset($_POST['UserName']) && !empty($_POST['UserName'])) {
             echo "Přihlášeno";
             header("Location: indexVeVnitr.html");
           }
-          else echo "Nesprávný uživatel nebo heslo";
+          else { ?>
+            <script>
+              function myFunction() {
+                window.location.href = "login.html";
+                alert("Nesprávný uživatel nebo heslo");
+                
+              }
+              myFunction();
+            </script>
+            <?php
+            }
 
     }catch(PDOException $e) {
         echo $e->getMessage();
