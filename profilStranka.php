@@ -1,6 +1,7 @@
 <?php
 require_once ("connect.php");
 session_start();
+if (!isset($_SESSION['Jmeno'])) { header("Location: index.html"); exit; }
 ?>
 
 
@@ -24,7 +25,7 @@ session_start();
       <ul class="pismo">
 
         <li><a href="indexVeVnitr.html"> Domů </a></li>
-        <li><a href="profil.php"><div class="koupelna">Odhlásit se</div></a></li>
+        <li><a href="logout.php"><div class="koupelna">Odhlásit se</div></a></li>
       </ul>
     </div>
   </div>
@@ -50,7 +51,16 @@ echo "Váš E-mail: " . $email;
 
 <form action="poznamky.php" class="form" method="post">
   <p><label>Poznámky</label></p>
-  <textarea id="poznamky" name="poznamky" rows="4" cols="50" maxlength="255"> </textarea>
+  <textarea id="poznamky" name="poznamky" rows="4" cols="50" maxlength="255"> 
+    <?php 
+
+        $stmt = $conn->prepare("SELECT poznamka FROM poznamky WHERE iduzivatele = :iduzivatele");
+        $stmt->bindParam(':iduzivatele',$_SESSION["iduzivatel"]);
+        $stmt->execute();
+        $poznm = $stmt->fetchColumn();
+        echo $poznm; 
+    ?> 
+  </textarea>
   <br>
   <input type="submit" value="Uložit">
 </form>
