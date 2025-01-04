@@ -14,7 +14,8 @@ if(isset($_POST['UserName']) && !empty($_POST['UserName'])) {
         $hash = $stmt->fetchColumn();
 
         if (password_verify($_POST['pass'], $hash)) {
-            $_SESSION["uzivatel"] = $_POST['UserName'];
+          $_SESSION["Jmeno"] = $_POST['UserName'];
+
             echo "Přihlášeno";
             header("Location: indexVeVnitr.html");
           }
