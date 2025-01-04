@@ -18,7 +18,7 @@ if (!isset($_SESSION['Jmeno'])) { header("Location: index.html"); exit; }
     <div class="navbar-left">
       <div class="navbar-logo">
         <ul>
-          <li><a href="index.html"><img src="https://loudavymkrokem.cz/wp-content/uploads/2023/05/loudavy-krokem-logo-cerne.png" alt=""></a>
+          <li><a href="indexVeVnitr.html"><img src="https://loudavymkrokem.cz/wp-content/uploads/2023/05/loudavy-krokem-logo-cerne.png" alt=""></a>
           </li>
         </ul>
       </div>
