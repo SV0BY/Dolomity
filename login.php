@@ -14,7 +14,13 @@ if(isset($_POST['UserName']) && !empty($_POST['UserName'])) {
         $hash = $stmt->fetchColumn();
 
         if (password_verify($_POST['pass'], $hash)) {
-            $_SESSION["uzivatel"] = $_POST['UserName'];
+          $_SESSION["Jmeno"] = $_POST['UserName'];
+          $stmt = $conn->prepare("SELECT iduzivatele FROM uzivatele WHERE username = :username");
+          $stmt->bindParam(':username',$_POST['UserName']);
+          $stmt->execute();
+          $id = $stmt->fetchColumn();
+          $_SESSION["iduzivatel"] = $id;
+
             echo "Přihlášeno";
             header("Location: indexVeVnitr.html");
           }

@@ -1,0 +1,338 @@
+body {
+  margin: 0px;
+  font-family:  "monospace","monaco";
+  font-size: 20px;
+  background: transparent;
+}
+
+
+.navbar {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  font-weight: 400;
+  position: absolute;
+  font-size: 50px;
+}
+
+
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.pismo{
+  padding-left: 2000px;
+}
+.pismo a{
+  color: rgb(34, 84, 26);
+}
+
+.navbar-left img{
+  width: 100px;
+}
+
+.navbar-logo {
+  display: flex;
+  padding-left: 0px;
+  width: auto;
+  height: auto;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+li {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgba(20, 70, 0, 1);
+  text-decoration: underline;
+}
+/*navbar*/
+.obrazek img{
+  width: 100%;
+  height: 70% ;
+}
+
+
+@keyframes slideInLeft {
+  from{
+    transform: translateX(-1500px);
+  }
+
+  to{
+    transform: translateX(0);
+  }
+  
+}
+.vodoznak{
+  position: absolute;
+  font-weight: 600;
+  font-size: 100px;
+  top: 43%;
+  left: 41%;
+  color: black(20, 70, 0, 1);
+  animation: slideInLeft 2s ease-out 0s 1 normal none;
+}
+.vodoznak1{
+  position: absolute;
+  font-weight: 600;
+  font-size: 50px;
+  top: 55%;
+  left: 40%;
+  color: black(20, 70, 0, 1);
+  animation: slideInLeft 1.5s ease-out 0s 1 normal none;
+}
+
+.btn a{
+  position: absolute;
+  top: 65%;
+  left: 47%;
+  font-size: 40px ;
+  color: rgba(20, 70, 0, 1);
+  background-color: white;
+  border: 1px solid rgba(10, 75, 0, 1);
+  border-radius: 40px ;
+  padding: 10px 30px 10px 30px  ;
+  animation: slideInLeft 1s ease-out 0s 1 normal none;
+
+
+  transition-property:transform ;
+  transition-duration: 0.3s;
+  transition-timing-function:ease ;
+  transition-delay:0s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover a {
+  color: white;
+  background-color: rgb(25, 90, 16);
+  transform: translateY(-10px);
+}
+
+footer{
+  padding: 100px 50px 100px 50px ;
+  text-align: center;
+  align-items: center;
+  background-color:rgba(8, 8, 8, 0.8) ;
+  color: white;
+}
+
+@media(max-width: 2640px ){
+  .pismo{
+    padding-left: 1400px;
+  }
+}
+
+@media(max-width: 2000px ){
+  .obrazek{
+    width: 100%;
+  }
+  .pismo{
+    padding-left: 1300px;
+  }
+}
+@media(max-width: 1935px ){
+  .pismo{
+    padding-left: 1200px;
+  }
+}
+
+@media(max-width: 1825px ){
+  .pismo{
+    padding-left: 1000px;
+  }
+}
+
+@media(max-width: 1640px ){
+  
+  .pismo{
+    padding-left: 800px;
+  }
+
+}
+@media(max-width: 1444px ){
+  
+  .pismo{
+    padding-left: 700px;
+  }
+}
+@media(max-width: 1260px ){
+  
+  .pismo{
+    padding-left: 25px;
+  }
+  .vodoznak{
+    position: absolute;
+    font-weight: 600;
+    font-size: 100px;
+    top: 33%;
+    left: 31%;
+   
+  }
+  .vodoznak1{
+    position: absolute;
+    font-weight: 600;
+    font-size: 50px;
+    top: 45%;
+    left: 30%;
+  
+  }
+  
+  .btn a{
+    position: absolute;
+    top: 55%;
+    left: 37%;
+    font-size: 40px ;
+    
+  }
+}
+@media(max-width: 855px ){
+  
+  .pismo{
+    padding-left: 25px;
+    border-bottom: 1px solid black;
+  }
+  .pismo li{
+    padding-right: 100px;
+  }
+
+  .vodoznak{
+    position: absolute;
+    font-weight: 600;
+    font-size: 100px;
+    top: 33%;
+    left: 25%;
+   
+  }
+  .vodoznak1{
+    position: absolute;
+    font-weight: 600;
+    font-size: 50px;
+    top: 45%;
+    left: 23%;
+  
+  }
+  
+  .btn a{
+    position: absolute;
+    top: 55%;
+    left: 34%;
+    font-size: 40px ;
+    
+  }
+}
+@media(max-width: 580px ){
+
+  .pismo{
+    padding-left: 25px;
+    padding-top: 80px;
+    position: absolute;
+    top: 20px;
+    border-bottom: 1px solid black;
+  }
+  .pismo li{
+    padding-right: 270px;
+  }
+  .pismo a{
+    font-size: 30px;
+  }
+
+  .vodoznak{
+    position: absolute;
+    font-weight: 600;
+    font-size: 100px;
+    top: 33%;
+    left: 15%;
+   
+  }
+  .vodoznak1{
+    position: absolute;
+    font-weight: 600;
+    font-size: 50px;
+    top: 45%;
+    left: 13%;
+  
+  }
+  
+  .btn a{
+    position: absolute;
+    top: 55%;
+    left: 24%;
+    font-size: 40px ;
+    
+  }
+}
+
+
+@media(max-height: 743px){
+    .vodoznak{
+    position: absolute;
+    font-weight: 600;
+    font-size: 100px;
+    top: 33%;
+    left: 15%;
+   
+  }
+  .vodoznak1{
+    position: absolute;
+    font-weight: 600;
+    font-size: 50px;
+    top: 50%;
+    left: 28%;
+  
+  }
+  
+  .btn a{
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    font-size: 40px ;
+    
+  }
+}
+@media(min-height: 1350px){
+  .vodoznak{
+    position: absolute;
+    font-weight: 600;
+    font-size: 100px;
+    top: 33%;
+    left: 38%;
+   
+  }
+  .vodoznak1{
+    position: absolute;
+    font-weight: 600;
+    font-size: 50px;
+    top: 45%;
+    left: 37%;
+  
+  }
+  
+  .btn a{
+    position: absolute;
+    top: 55%;
+    left: 43%;
+    font-size: 40px ;
+    
+  }
+}
+
+

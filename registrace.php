@@ -32,11 +32,26 @@ session_start();
   $heslo = password_hash($_POST['pass'], PASSWORD_DEFAULT);
   
   $stmt -> execute();
+
+
+  $stmt = $conn->prepare("SELECT iduzivatele FROM uzivatele WHERE username = :username");
+  $stmt->bindParam(':username',$_POST['UserName']);
+  $stmt->execute();
+  $id = $stmt->fetchColumn();
+
+  $stmt = $conn->prepare("INSERT INTO poznamky (iduzivatele)
+                            VALUES (:iduzivate)"); 
+  $stmt->bindParam(':iduzivate', $id); 
+  $stmt->execute();
+
+
+
   header("Location: indexVeVnitr.html");
 
   echo "Registrace probehla uspesne";
   $_SESSION["Jmeno"] = $_POST['UserName'];
   $_SESSION["Email"] = $_POST['email'];
+  $_SESSION["iduzivatel"] = $id;
     }
 
     
