@@ -39,10 +39,15 @@ session_start();
   $stmt->execute();
   $id = $stmt->fetchColumn();
 
-  $stmt = $conn->prepare("INSERT INTO poznamky (iduzivatele)
-                            VALUES (:iduzivate)"); 
+  $stmt = $conn->prepare("INSERT INTO poznamky (iduzivatele, note_number)
+                            VALUES (:iduzivate, 1)"); 
   $stmt->bindParam(':iduzivate', $id); 
   $stmt->execute();
+
+  $stmt = $conn->prepare("INSERT INTO poznamky (iduzivatele, note_number)
+  VALUES (:iduzivate, 2)"); 
+$stmt->bindParam(':iduzivate', $id); 
+$stmt->execute();  
 
 
 

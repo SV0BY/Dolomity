@@ -11,7 +11,7 @@ if (!isset($_SESSION['Jmeno'])) { header("Location: index.html"); exit; }
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loudavým krokem</title>
-  <link type="text/css" href="style4.css" rel="stylesheet"/>
+  <link type="text/css" href="poznamky.css" rel="stylesheet"/>
 </head>
 <body>
   <div class="navbar">
@@ -25,7 +25,7 @@ if (!isset($_SESSION['Jmeno'])) { header("Location: index.html"); exit; }
       <ul class="pismo">
 
         <li><a href="indexVeVnitr.html"> Domů </a></li>
-        <li><a href="logout.php"><div class="koupelna">Odhlásit se</div></a></li>
+        <li><a href="profilStranka.php"><div class="koupelna">Profil</div></a></li>
       </ul>
     </div>
   </div>
@@ -33,28 +33,15 @@ if (!isset($_SESSION['Jmeno'])) { header("Location: index.html"); exit; }
   <div class="obrazek">
     <img src="dolomity3.jpeg" alt="">
   </div>
-  <div class="vodoznak">Vítejte</div>
-  <div class="vodoznak1"> <?php echo $_SESSION["Jmeno"]; ?> <br> 
-  
-  <?php 
-    if (isset($_SESSION["Email"])){
-    echo "Váš E-mail: " . $_SESSION["Email"] . "<br>";
-}else{
-    $stmt = $conn->prepare("SELECT email FROM uzivatele WHERE username = :username");
-$stmt->bindParam(':username',$_SESSION["Jmeno"]);
-$stmt->execute();
-$email = $stmt->fetchColumn();
-echo "Váš E-mail: " . $email;
-} 
-?> 
+  <div class="vodoznak">Poznámky</div>
 </div>
 
 <form action="poznamky.php" class="form" method="post">
-  <p><label>Poznámky</label></p>
+  <p><label>Poznámka1</label></p>
   <textarea id="poznamky" name="poznamky" rows="4" cols="50" maxlength="255"> 
     <?php 
 
-        $stmt = $conn->prepare("SELECT poznamka FROM poznamky WHERE iduzivatele = :iduzivatele");
+        $stmt = $conn->prepare("SELECT poznamka FROM poznamky WHERE iduzivatele = :iduzivatele AND note_number = 1");
         $stmt->bindParam(':iduzivatele',$_SESSION["iduzivatel"]);
         $stmt->execute();
         $poznm = $stmt->fetchColumn();
@@ -62,10 +49,37 @@ echo "Váš E-mail: " . $email;
     ?> 
   </textarea>
   <br>
-  <input type="submit" value="Uložit">
+  <input type="submit" value="Uložit/Upravit">
+  
+      
+</form>
+<form action="vymazat.php" class="form3" method="post" >
+  <input type="hidden" name="poznamkyD1" value="">
+  <input type="submit" value="Vymazat">
+      </form>
+
+
+<form action="poznamky.php" class="form2" method="post">
+  <p><label>Poznámka2</label></p>
+  <textarea id="poznamky" name="poznamky2" rows="4" cols="50" maxlength="255"> 
+    <?php 
+
+        $stmt = $conn->prepare("SELECT poznamka FROM poznamky WHERE iduzivatele = :iduzivatele AND note_number = 2");
+        $stmt->bindParam(':iduzivatele',$_SESSION["iduzivatel"]);
+        $stmt->execute();
+        $poznm = $stmt->fetchColumn();
+        echo $poznm; 
+    ?> 
+  </textarea>
+  <br>
+  <input type="submit" value="Uložit/Upravit">
+      
 </form>
 
-
+<form action="vymazat.php" class="form4" method="post" >
+  <input type="hidden" name="poznamkyD2" value="">
+  <input type="submit" value="Vymazat2">
+      </form>
  
 
   
