@@ -49,10 +49,12 @@ if (!isset($_SESSION['Jmeno'])) { header("Location: index.html"); exit; }
     ?> 
   </textarea>
   <br>
-  <input type="submit" value="Uložit/Upravit">
+  <input type="submit" name="action1" value="Uložit">
+  <input type="submit" name="action2" value="Upravit">
   
       
 </form>
+
 <form action="vymazat.php" class="form3" method="post" >
   <input type="hidden" name="poznamkyD1" value="">
   <input type="submit" value="Vymazat">
@@ -72,7 +74,8 @@ if (!isset($_SESSION['Jmeno'])) { header("Location: index.html"); exit; }
     ?> 
   </textarea>
   <br>
-  <input type="submit" value="Uložit/Upravit">
+  <input type="submit" name="action3" value="Uložit">
+  <input type="submit" name="action4" value="Upravit">
       
 </form>
 
